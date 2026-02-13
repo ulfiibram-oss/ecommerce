@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="E-Commerce Wireframe - Professional online store with GoPay & DANA payment integration">
+  <meta name="keywords" content="ecommerce, online store, gopay, dana, shopping">
+  <meta name="author" content="Your Brand">
+  
+  <title>E-Commerce Store - Shop with GoPay & DANA</title>
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon (optional) -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+  <!-- ===================================
+       MAIN CONTAINER
+       Wrapper untuk semua konten
+       =================================== -->
+  <div class="container">
+    
+    <!-- ===================================
+         NAVIGATION TABS
+         Tab untuk berpindah antar halaman
+         =================================== -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage('homepage')">
+        🏠 Homepage
+      </button>
+      <button class="nav-tab" onclick="showPage('listing')">
+        🛍️ Product Listing
+      </button>
+      <button class="nav-tab" onclick="showPage('detail')">
+        📦 Product Detail
+      </button>
+      <button class="nav-tab" onclick="showPage('cart')">
+        🛒 Cart & Checkout
+        <span class="cart-badge" style="display: none; position: absolute; top: -8px; right: -8px; background: #fb7185; color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center;">0</span>
+      </button>
+    </div>
+
+    <!-- ===================================
+         HOMEPAGE
+         Landing page dengan hero & featured products
+         =================================== -->
+    <div id="homepage" class="page active">
+      <div class="wireframe-card">
+        <h1 class="wireframe-title">🏠 Homepage Wireframe</h1>
+        <p class="wireframe-subtitle">Landing page utama e-commerce dengan hero section & featured products</p>
+
+        <!-- Header / Navigation -->
+        <div class="wf-section">
+          <span class="wf-label">📍 Header / Navigation Bar</span>
+          <div class="wf-header">
+            <div class="wf-logo" onclick="showPage('homepage')">LOGO</div>
+            <div class="wf-nav">
+              <div class="wf-nav-item" onclick="showPage('homepage')">Home</div>
+              <div class="wf-nav-item" onclick="showPage('listing')">Shop</div>
+              <div class="wf-nav-item">About</div>
+              <div class="wf-nav-item">Contact</div>
+            </div>
+            <div class="wf-icons">
+              <div class="wf-icon">🔍</div>
+              <div class="wf-icon" onclick="showPage('cart')" style="position: relative;">
+                🛒
+                <span class="cart-badge" style="display: none; position: absolute; top: -5px; right: -5px; background: #fb7185; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center;">0</span>
+              </div>
+              <div class="wf-icon">👤</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="wf-section">
+          <span class="wf-label">🎯 Hero Section <span class="annotation">Full-width banner dengan CTA</span></span>
+          <div class="wf-hero">
+            <div class="wf-hero-text" style="font-size: 32px; font-weight: 700;">Welcome to Our Store</div>
+            <div class="wf-hero-text" style="font-size: 18px;">Discover amazing products with best prices</div>
+            <div class="wf-hero-text" style="font-size: 14px; color: rgba(255, 255, 255, 0.5);">🖼️ Hero Image / Video Background</div>
+            <div class="wf-hero-btn" onclick="showPage('listing')">Shop Now</div>
+          </div>
+        </div>
+
+        <!-- Featured Categories -->
+        <div class="wf-section">
+          <span class="wf-label">📂 Featured Categories <span class="annotation">4 columns grid</span></span>
+          <div class="wf-grid wf-grid-4">
+            <div class="wf-box" onclick="showPage('listing')" style="cursor: pointer; flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">👕</div>
+              <div>Fashion</div>
+            </div>
+            <div class="wf-box" onclick="showPage('listing')" style="cursor: pointer; flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">📱</div>
+              <div>Electronics</div>
+            </div>
+            <div class="wf-box" onclick="showPage('listing')" style="cursor: pointer; flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">🏠</div>
+              <div>Home & Living</div>
+            </div>
+            <div class="wf-box" onclick="showPage('listing')" style="cursor: pointer; flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">🎮</div>
+              <div>Gaming</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="wf-section">
+          <span class="wf-label">⭐ Featured Products <span class="annotation">Product grid dengan quick add</span></span>
+          <div class="wf-grid wf-grid-4">
+            <!-- Product 1 -->
+            <div class="wf-product" onclick="viewProduct(1)">
+              <div class="wf-product-img">Product Image 1</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(1)">Add to Cart</div>
+              </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="wf-product" onclick="viewProduct(2)">
+              <div class="wf-product-img">Product Image 2</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(2)">Add to Cart</div>
+              </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="wf-product" onclick="viewProduct(3)">
+              <div class="wf-product-img">Product Image 3</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(3)">Add to Cart</div>
+              </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="wf-product" onclick="viewProduct(4)">
+              <div class="wf-product-img">Product Image 4</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(4)">Add to Cart</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Offers -->
+        <div class="wf-section">
+          <span class="wf-label">🎁 Special Offers / Promo Banner <span class="annotation">2 columns</span></span>
+          <div class="wf-grid wf-grid-2">
+            <div class="wf-box" style="min-height: 200px; flex-direction: column; gap: 15px; cursor: pointer;" onclick="showPage('listing')">
+              <div style="font-size: 28px; font-weight: 600;">Flash Sale 50% OFF</div>
+              <div style="font-size: 14px;">Limited time offer!</div>
+            </div>
+            <div class="wf-box" style="min-height: 200px; flex-direction: column; gap: 15px; cursor: pointer;" onclick="showPage('listing')">
+              <div style="font-size: 28px; font-weight: 600;">Free Shipping</div>
+              <div style="font-size: 14px;">For orders above $50</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="wf-section">
+          <span class="wf-label">📄 Footer Section</span>
+          <div class="wf-footer">
+            <div class="wf-footer-grid">
+              <div class="wf-footer-col">
+                <div style="font-weight: 600; margin-bottom: 15px; color: white;">About Us</div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+              </div>
+              <div class="wf-footer-col">
+                <div style="font-weight: 600; margin-bottom: 15px; color: white;">Customer Service</div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+              </div>
+              <div class="wf-footer-col">
+                <div style="font-weight: 600; margin-bottom: 15px; color: white;">Quick Links</div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+                <div class="wf-footer-line"></div>
+              </div>
+              <div class="wf-footer-col">
+                <div style="font-weight: 600; margin-bottom: 15px; color: white;">Follow Us</div>
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+                  <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;">📘</div>
+                  <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;">📷</div>
+                  <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;">🐦</div>
+                </div>
+              </div>
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+              © 2026 Your Brand. All rights reserved. | Accept GoPay & DANA Payment
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================
+         PRODUCT LISTING PAGE
+         Halaman katalog dengan filter & sorting
+         =================================== -->
+    <div id="listing" class="page">
+      <div class="wireframe-card">
+        <h1 class="wireframe-title">🛍️ Product Listing Wireframe</h1>
+        <p class="wireframe-subtitle">Halaman katalog produk dengan filter & sorting functionality</p>
+
+        <!-- Header -->
+        <div class="wf-section">
+          <span class="wf-label">📍 Header / Navigation</span>
+          <div class="wf-header">
+            <div class="wf-logo" onclick="showPage('homepage')">LOGO</div>
+            <div class="wf-nav">
+              <div class="wf-nav-item" onclick="showPage('homepage')">Home</div>
+              <div class="wf-nav-item" onclick="showPage('listing')">Shop</div>
+              <div class="wf-nav-item">About</div>
+              <div class="wf-nav-item">Contact</div>
+            </div>
+            <div class="wf-icons">
+              <div class="wf-icon">🔍</div>
+              <div class="wf-icon" onclick="showPage('cart')" style="position: relative;">
+                🛒
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+              <div class="wf-icon">👤</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="wf-section">
+          <span class="wf-label">🗺️ Breadcrumb Navigation</span>
+          <div class="wf-box" style="min-height: 50px; justify-content: flex-start; padding-left: 20px; cursor: pointer;">
+            <span onclick="showPage('homepage')" style="cursor: pointer;">Home</span> > 
+            <span style="font-weight: 600; color: #2dd4bf;"> Shop</span> > Category
+          </div>
+        </div>
+
+        <!-- Filters & Sorting -->
+        <div class="wf-section">
+          <span class="wf-label">🎛️ Filters & Sorting <span class="annotation">Interactive filters</span></span>
+          <div class="wf-filters">
+            <button class="wf-filter" onclick="applyFilter('Electronics')">🔽 Category</button>
+            <button class="wf-filter" onclick="applyFilter('$0-$50')">🔽 Price Range</button>
+            <button class="wf-filter" onclick="applyFilter('Popular Brands')">🔽 Brand</button>
+            <button class="wf-filter" onclick="applyFilter('All Sizes')">🔽 Size</button>
+            <button class="wf-filter" onclick="applyFilter('All Colors')">🔽 Color</button>
+            <button class="wf-filter" onclick="sortProducts('Popular')" style="margin-left: auto; background: var(--accent-gradient); color: white;">🔽 Sort By: Popular</button>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="wf-section">
+          <span class="wf-label">📦 Product Grid <span class="annotation">Responsive grid layout</span></span>
+          <div class="wf-grid wf-grid-4">
+            <!-- Products 1-8 -->
+            <div class="wf-product" onclick="viewProduct(1)">
+              <div class="wf-product-img">Product 1</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(1)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(2)">
+              <div class="wf-product-img">Product 2</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(2)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(3)">
+              <div class="wf-product-img">Product 3</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(3)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(4)">
+              <div class="wf-product-img">Product 4</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(4)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(5)">
+              <div class="wf-product-img">Product 5</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(5)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(6)">
+              <div class="wf-product-img">Product 6</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(6)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(7)">
+              <div class="wf-product-img">Product 7</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(7)">Add to Cart</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(8)">
+              <div class="wf-product-img">Product 8</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation(); addToCart(8)">Add to Cart</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="wf-section">
+          <span class="wf-label">📄 Pagination</span>
+          <div class="wf-box" style="min-height: 60px; gap: 20px;">
+            <button class="wf-filter">← Previous</button>
+            <button class="wf-filter active">1</button>
+            <button class="wf-filter">2</button>
+            <button class="wf-filter">3</button>
+            <button class="wf-filter">4</button>
+            <button class="wf-filter">5</button>
+            <button class="wf-filter">Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================
+         PRODUCT DETAIL PAGE
+         Detail produk dengan gallery & specs
+         =================================== -->
+    <div id="detail" class="page">
+      <div class="wireframe-card">
+        <h1 class="wireframe-title">📦 Product Detail Wireframe</h1>
+        <p class="wireframe-subtitle">Detail produk lengkap dengan gallery, spesifikasi & reviews</p>
+
+        <!-- Header -->
+        <div class="wf-section">
+          <span class="wf-label">📍 Header / Navigation</span>
+          <div class="wf-header">
+            <div class="wf-logo" onclick="showPage('homepage')">LOGO</div>
+            <div class="wf-nav">
+              <div class="wf-nav-item" onclick="showPage('homepage')">Home</div>
+              <div class="wf-nav-item" onclick="showPage('listing')">Shop</div>
+              <div class="wf-nav-item">About</div>
+              <div class="wf-nav-item">Contact</div>
+            </div>
+            <div class="wf-icons">
+              <div class="wf-icon">🔍</div>
+              <div class="wf-icon" onclick="showPage('cart')" style="position: relative;">
+                🛒
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+              <div class="wf-icon">👤</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="wf-section">
+          <span class="wf-label">🗺️ Breadcrumb</span>
+          <div class="wf-box" style="min-height: 50px; justify-content: flex-start; padding-left: 20px;">
+            <span onclick="showPage('homepage')" style="cursor: pointer;">Home</span> > 
+            <span onclick="showPage('listing')" style="cursor: pointer;">Shop</span> > 
+            <span style="cursor: pointer;">Category</span> > 
+            <span style="font-weight: 600; color: #2dd4bf;">Product Name</span>
+          </div>
+        </div>
+
+        <!-- Product Gallery & Info -->
+        <div class="wf-section">
+          <span class="wf-label">🖼️ Product Gallery & Information <span class="annotation">2-column layout</span></span>
+          <div class="wf-detail-grid">
+            <div class="wf-gallery">
+              <div style="text-align: center;">
+                <div style="font-size: 14px; margin-bottom: 15px;">🖼️ Product Gallery</div>
+                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.4);">Main image + thumbnails carousel</div>
+              </div>
+            </div>
+            <div class="wf-detail-info">
+              <div class="wf-info-block">
+                <div style="font-size: 24px; font-weight: 600; margin-bottom: 10px;">Amazing Product Name</div>
+                <div style="color: rgba(255, 255, 255, 0.6); font-size: 14px; line-height: 1.6;">
+                  High-quality product with excellent features and specifications. Perfect for your needs.
+                </div>
+              </div>
+              <div class="wf-info-block">
+                <div style="color: rgba(255, 255, 255, 0.6); font-size: 12px; margin-bottom: 10px;">Price</div>
+                <div style="font-size: 32px; font-weight: 700; color: #2dd4bf; margin-bottom: 15px;">$99.99</div>
+                <div style="color: rgba(255, 255, 255, 0.5); font-size: 13px;">⭐⭐⭐⭐⭐ (128 reviews)</div>
+              </div>
+              <div class="wf-info-block">
+                <div style="color: rgba(255, 255, 255, 0.6); font-size: 12px; margin-bottom: 15px;">Select Options</div>
+                <div class="wf-filters">
+                  <button class="wf-filter active">Size: M</button>
+                  <button class="wf-filter">Color: Blue</button>
+                  <button class="wf-filter">Qty: 1</button>
+                </div>
+              </div>
+              <button class="wf-cta-btn" onclick="addToCart(1)">🛒 Add to Cart</button>
+              <div style="display: flex; gap: 10px;">
+                <button class="wf-filter" onclick="addToWishlist(1)" style="flex: 1;">
+                  ❤️ Wishlist
+                </button>
+                <button class="wf-filter" onclick="shareProduct()" style="flex: 1;">
+                  🔗 Share
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="wf-section">
+          <span class="wf-label">📋 Product Details Tabs <span class="annotation">Description, Specs, Reviews</span></span>
+          <div class="wf-filters">
+            <button class="wf-filter active">Description</button>
+            <button class="wf-filter">Specifications</button>
+            <button class="wf-filter">Reviews (128)</button>
+            <button class="wf-filter">Shipping Info</button>
+          </div>
+          <div class="wf-box" style="min-height: 200px; align-items: flex-start; justify-content: flex-start; padding: 30px;">
+            <div style="line-height: 1.8; color: rgba(255, 255, 255, 0.7);">
+              <strong style="color: white;">Product Description:</strong><br><br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="wf-section">
+          <span class="wf-label">💡 Related Products <span class="annotation">You may also like</span></span>
+          <div class="wf-grid wf-grid-4">
+            <div class="wf-product" onclick="viewProduct(5)">
+              <div class="wf-product-img">Related 1</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation();">View Product</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(6)">
+              <div class="wf-product-img">Related 2</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation();">View Product</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(7)">
+              <div class="wf-product-img">Related 3</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation();">View Product</div>
+              </div>
+            </div>
+            <div class="wf-product" onclick="viewProduct(8)">
+              <div class="wf-product-img">Related 4</div>
+              <div class="wf-product-info">
+                <div class="wf-product-name"></div>
+                <div class="wf-product-price"></div>
+                <div class="wf-product-btn" onclick="event.stopPropagation();">View Product</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================
+         SHOPPING CART & CHECKOUT PAGE
+         Cart management dengan payment integration
+         =================================== -->
+    <div id="cart" class="page">
+      <div class="wireframe-card">
+        <h1 class="wireframe-title">🛒 Shopping Cart & Checkout</h1>
+        <p class="wireframe-subtitle">Cart management dengan integrasi pembayaran GoPay & DANA</p>
+
+        <!-- Header -->
+        <div class="wf-section">
+          <span class="wf-label">📍 Header / Navigation</span>
+          <div class="wf-header">
+            <div class="wf-logo" onclick="showPage('homepage')">LOGO</div>
+            <div class="wf-nav">
+              <div class="wf-nav-item" onclick="showPage('homepage')">Home</div>
+              <div class="wf-nav-item" onclick="showPage('listing')">Shop</div>
+              <div class="wf-nav-item">About</div>
+              <div class="wf-nav-item">Contact</div>
+            </div>
+            <div class="wf-icons">
+              <div class="wf-icon">🔍</div>
+              <div class="wf-icon" style="position: relative;">
+                🛒
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+              <div class="wf-icon">👤</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div class="wf-section">
+          <span class="wf-label">📦 Cart Items <span class="annotation">Dynamic cart items list</span></span>
+          <div id="cart-items-container">
+            <!-- Cart items akan di-render di sini oleh JavaScript -->
+            <div style="text-align: center; padding: 60px 20px; color: rgba(255, 255, 255, 0.5);">
+              <div style="font-size: 48px; margin-bottom: 20px;">🛒</div>
+              <h3 style="margin-bottom: 10px;">Your cart is empty</h3>
+              <p style="font-size: 14px;">Start shopping to add items!</p>
+              <button class="wf-cta-btn" style="width: 200px; margin: 30px auto 0;" onclick="showPage('listing')">
+                Browse Products
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Summary & Checkout -->
+        <div class="wf-section">
+          <span class="wf-label">💰 Order Summary & Checkout <span class="annotation">Payment integration</span></span>
+          <div class="wf-grid wf-grid-2">
+            <!-- Coupon Code -->
+            <div class="wf-info-block">
+              <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 15px; font-size: 14px; font-weight: 600;">💳 Apply Coupon Code</div>
+              <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="Enter coupon code" style="flex: 1; height: 50px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 0 15px; color: white; font-size: 13px;">
+                <button class="wf-filter" style="width: 100px; background: var(--accent-gradient); color: white;">
+                  Apply
+                </button>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="wf-summary" id="cart-summary">
+              <p style="color: rgba(255, 255, 255, 0.5);">No items in cart</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Steps -->
+        <div class="wf-section">
+          <span class="wf-label">✅ Checkout Process Steps <span class="annotation">Multi-step checkout</span></span>
+          <div class="wf-filters">
+            <button class="wf-filter active">1. Cart Review</button>
+            <button class="wf-filter">2. Shipping Info</button>
+            <button class="wf-filter">3. Payment</button>
+            <button class="wf-filter">4. Confirmation</button>
+          </div>
+        </div>
+
+        <!-- Payment Methods Info -->
+        <div class="wf-section">
+          <span class="wf-label">💳 Accepted Payment Methods</span>
+          <div class="wf-grid wf-grid-4">
+            <div class="wf-box" style="flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">💚</div>
+              <div style="font-weight: 600;">GoPay</div>
+            </div>
+            <div class="wf-box" style="flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">💙</div>
+              <div style="font-weight: 600;">DANA</div>
+            </div>
+            <div class="wf-box" style="flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">💳</div>
+              <div style="font-weight: 600;">Credit Card</div>
+            </div>
+            <div class="wf-box" style="flex-direction: column; gap: 10px;">
+              <div style="font-size: 32px;">🏦</div>
+              <div style="font-weight: 600;">Bank Transfer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="wf-section">
+          <span class="wf-label">✅ Trust & Security</span>
+          <div class="wf-grid wf-grid-4">
+            <div class="wf-box">🔒 Secure Payment</div>
+            <div class="wf-box">📦 Free Shipping</div>
+            <div class="wf-box">↩️ Easy Returns</div>
+            <div class="wf-box">✓ 1 Year Warranty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================================
+       PAYMENT MODAL
+       Modal untuk memilih metode pembayaran
+       =================================== -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+      <div id="payment-options-container">
+        <!-- Payment options akan di-render di sini -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================
+       JAVASCRIPT
+       Main application script
+       =================================== -->
+  <script src="js/main.js"></script>
+
+  <!-- Optional: Analytics atau tracking scripts -->
+  <!-- <script src="js/analytics.js"></script> -->
+
+</body>
+</html>
