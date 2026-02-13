@@ -1,0 +1,865 @@
+/* =====================================
+   E-COMMERCE WIREFRAME STYLESHEET
+   Main styling untuk wireframe toko online
+   Style: Dark Blue Gradient dengan Glassmorphism
+   ===================================== */
+
+/* ===== CSS VARIABLES ===== */
+/* Variabel warna dan theme yang digunakan di seluruh aplikasi */
+:root {
+  /* Gradient utama untuk background */
+  --primary-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+  
+  /* Gradient accent untuk button dan highlight */
+  --accent-gradient: linear-gradient(135deg, #2dd4bf, #3b82f6);
+  
+  /* Warna glow effect */
+  --glow-color: rgba(45, 212, 191, 0.35);
+  
+  /* Glassmorphism background */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  
+  /* Hover effect glow */
+  --hover-glow: rgba(45, 212, 191, 0.45);
+  
+  /* Spacing */
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 22px;
+}
+
+/* ===== GLOBAL RESET ===== */
+/* Reset semua margin, padding, dan box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY STYLING ===== */
+/* Background gradient dan setup dasar */
+body {
+  min-height: 100vh;
+  background: var(--primary-gradient);
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== ANIMATED BACKGROUND GLOW ===== */
+/* Efek glow yang bergerak untuk aesthetic */
+body::before {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, var(--glow-color), transparent 70%);
+  filter: blur(40px);
+  animation: moveGlow 10s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moveGlow {
+  from { transform: translate(-220px, -220px); }
+  to { transform: translate(220px, 220px); }
+}
+
+/* ===== MAIN CONTAINER ===== */
+/* Container utama untuk semua konten */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== NAVIGATION TABS ===== */
+/* Tab navigation untuk berpindah antar halaman */
+.nav-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(22px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+}
+
+.nav-tab {
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.nav-tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-tab.active {
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 0 25px var(--hover-glow);
+}
+
+/* ===== PAGE CONTENT ===== */
+/* Container untuk setiap halaman */
+.page {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Animasi fade in saat halaman muncul */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* ===== WIREFRAME CARD ===== */
+/* Card utama untuk membungkus konten wireframe */
+.wireframe-card {
+  backdrop-filter: blur(22px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+  margin-bottom: 30px;
+}
+
+/* ===== WIREFRAME TITLES ===== */
+.wireframe-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.wireframe-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* ===== WIREFRAME SECTIONS ===== */
+/* Section untuk setiap komponen wireframe */
+.wf-section {
+  margin-bottom: 25px;
+}
+
+/* Label untuk setiap section */
+.wf-label {
+  color: #2dd4bf;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Box placeholder untuk wireframe */
+.wf-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.wf-box:hover {
+  border-color: rgba(45, 212, 191, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== GRID LAYOUTS ===== */
+/* Responsive grid system */
+.wf-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.wf-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.wf-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.wf-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ===== HEADER COMPONENTS ===== */
+/* Header navigation wireframe */
+.wf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  margin-bottom: 25px;
+}
+
+/* Logo placeholder */
+.wf-logo {
+  width: 120px;
+  height: 40px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.wf-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation menu items */
+.wf-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.wf-nav-item {
+  width: 80px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wf-nav-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Header icons (search, cart, profile) */
+.wf-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.wf-icon {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wf-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== HERO SECTION ===== */
+/* Hero banner untuk homepage */
+.wf-hero {
+  height: 400px;
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px dashed rgba(45, 212, 191, 0.3);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wf-hero-text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+}
+
+.wf-hero-btn {
+  width: 150px;
+  height: 45px;
+  background: var(--accent-gradient);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 0 20px var(--hover-glow);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.wf-hero-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px var(--hover-glow);
+}
+
+/* ===== PRODUCT CARD ===== */
+/* Card untuk menampilkan produk */
+.wf-product {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.wf-product:hover {
+  transform: translateY(-5px);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 10px 30px rgba(45, 212, 191, 0.2);
+}
+
+/* Product image placeholder */
+.wf-product-img {
+  height: 200px;
+  background: rgba(45, 212, 191, 0.15);
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+/* Product information section */
+.wf-product-info {
+  padding: 20px;
+}
+
+.wf-product-name {
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.wf-product-price {
+  height: 25px;
+  width: 80px;
+  background: var(--accent-gradient);
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Add to cart button */
+.wf-product-btn {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wf-product-btn:hover {
+  background: var(--accent-gradient);
+  color: white;
+  transform: scale(1.02);
+}
+
+/* ===== PRODUCT DETAIL PAGE ===== */
+/* Grid layout untuk product detail */
+.wf-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+/* Product gallery/image area */
+.wf-gallery {
+  height: 500px;
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px dashed rgba(45, 212, 191, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Product detail information */
+.wf-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wf-info-block {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.wf-info-title {
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.wf-info-desc {
+  height: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.wf-info-desc:last-child {
+  width: 70%;
+}
+
+/* Call-to-action button (Add to Cart, Buy Now, etc) */
+.wf-cta-btn {
+  height: 55px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 0 25px var(--hover-glow);
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wf-cta-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px var(--hover-glow);
+}
+
+/* ===== SHOPPING CART ===== */
+/* Cart item layout */
+.wf-cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.wf-cart-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Cart item image */
+.wf-cart-img {
+  height: 100px;
+  background: rgba(45, 212, 191, 0.15);
+  border-radius: 10px;
+}
+
+/* Cart item details */
+.wf-cart-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wf-cart-line {
+  height: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.wf-cart-line:first-child {
+  width: 70%;
+}
+
+.wf-cart-line:last-child {
+  width: 40%;
+}
+
+/* Cart item price display */
+.wf-cart-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2dd4bf;
+}
+
+/* Order summary box */
+.wf-summary {
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px solid rgba(45, 212, 191, 0.3);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.wf-summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.wf-summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.2);
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+/* ===== FILTERS & SORTING ===== */
+/* Filter buttons untuk product listing */
+.wf-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.wf-filter {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.wf-filter:hover {
+  background: rgba(45, 212, 191, 0.2);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.wf-filter.active {
+  background: var(--accent-gradient);
+  color: white;
+}
+
+/* ===== FOOTER ===== */
+/* Footer wireframe */
+.wf-footer {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 40px 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.wf-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.wf-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wf-footer-line {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* ===== ANNOTATIONS ===== */
+/* Label untuk menjelaskan komponen wireframe */
+.annotation {
+  display: inline-block;
+  background: rgba(251, 113, 133, 0.2);
+  color: #fb7185;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== MODAL STYLES ===== */
+/* Modal untuk payment dan checkout */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* ===== PAYMENT OPTIONS ===== */
+/* Payment gateway selection */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(45, 212, 191, 0.4);
+  transform: translateX(5px);
+}
+
+.payment-option.selected {
+  border-color: #2dd4bf;
+  background: rgba(45, 212, 191, 0.1);
+}
+
+.payment-logo {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #333;
+}
+
+.payment-info {
+  flex: 1;
+}
+
+.payment-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.payment-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== LOADING SPINNER ===== */
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #2dd4bf;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Tablet dan mobile optimization */
+@media (max-width: 768px) {
+  /* Stack detail grid vertically */
+  .wf-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust cart layout for mobile */
+  .wf-cart-item {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .wf-cart-price {
+    grid-column: 2;
+    margin-top: 10px;
+  }
+
+  /* Hide desktop navigation */
+  .wf-nav {
+    display: none;
+  }
+
+  /* Adjust modal for mobile */
+  .modal-content {
+    width: 95%;
+    padding: 25px;
+  }
+
+  /* Make hero smaller on mobile */
+  .wf-hero {
+    height: 300px;
+  }
+
+  /* Stack grid to 2 columns on mobile */
+  .wf-grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .wireframe-card {
+    padding: 20px;
+  }
+
+  .nav-tabs {
+    padding: 10px;
+  }
+
+  .nav-tab {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  /* Single column layout for small screens */
+  .wf-grid-2,
+  .wf-grid-3,
+  .wf-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
